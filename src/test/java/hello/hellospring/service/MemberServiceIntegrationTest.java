@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -47,6 +48,31 @@ class MemberServiceIntegrationTest {
                 () -> memberService.join(member2));
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+    }
+
+    @Test
+    public void JPA_조회() throws Exception {
+        //given
+
+        //when
+        List<Member> members = memberService.findMembers();
+        //then
+        for (Member member : members) {
+            System.out.println("member : " + member.getName());
+        }
+    }
+
+
+    @Test
+    public void 마이바티스_조회() throws Exception {
+        //given
+
+        //when
+        List<Member> mybatisMembers = memberService.findMybatisMembers();
+        //then
+        for (Member mybatisMember : mybatisMembers) {
+            System.out.println("member : " + mybatisMember.getName());
+        }
     }
 
 
