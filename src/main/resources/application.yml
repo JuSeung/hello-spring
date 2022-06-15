@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:tcp://localhost/~/test
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+mybatis:
+  configuration:
+    cache-enabled: false
+    default-executor-type: reuse
+    default-statement-timeout: 25
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    jdbc-type-for-null: null
+    call-setters-on-nulls: true
+    return-instance-for-empty-row: true
+
+
+#spring.
+#datasource.url=jdbc:h2:tcp://localhost/~/test
+#spring.datasource.driver-class-name=org.h2.Driver
+#spring.datasource.username=sa
+#spring.jpa.show-sql=true
+#spring.jpa.hibernate.ddl-auto=none
